@@ -8,6 +8,8 @@ resource "google_compute_region_network_endpoint_group" "cloudrun_neg" {
 }
 
 # https://registry.terraform.io/modules/GoogleCloudPlatform/lb-http/google/latest/submodules/serverless_negs
+# https://cloud.google.com/blog/ja/products/application-development/new-terraform-module-serverless-load-balancing
+
 module "lb-http" {
   source            = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
   version           = "~> 4.5"
@@ -39,9 +41,9 @@ module "lb-http" {
       ]
 
       iap_config = {
-        enable               = false
-        oauth2_client_id     = null
-        oauth2_client_secret = null
+        enable               = true
+        oauth2_client_id     = google_iap_client.backend_client.client_id
+        oauth2_client_secret = google_iap_client.backend_client.secret
       }
       security_policy = null
     }
