@@ -5,3 +5,5 @@ domain = "thedemoapp.net."
 backend_domain = "backend.thedemoapp.net."
 
 backend_cloud_run ="polls-service"
+
+alert_email_address="hmdsg00@gmail.com"

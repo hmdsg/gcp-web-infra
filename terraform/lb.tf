@@ -12,7 +12,7 @@ resource "google_compute_region_network_endpoint_group" "cloudrun_neg" {
 
 module "lb-http" {
   source            = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
-  version           = "~> 4.5"
+  version           = "~> 6.2"
 
   project = var.project_id
   name    = "backend-lb"
@@ -28,6 +28,7 @@ module "lb-http" {
       description            = null
       enable_cdn             = false
       custom_request_headers = null
+      custom_response_headers = null
 
       log_config = {
         enable      = true
