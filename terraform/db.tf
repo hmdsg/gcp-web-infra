@@ -1,7 +1,7 @@
 resource "google_sql_database_instance" "main-mysql" {
-  name             = "main-mysql-db"
-  database_version = "MYSQL_5_7"
-  region           = "asia-northeast1"
+  name                = "main-mysql-db"
+  database_version    = "MYSQL_5_7"
+  region              = "asia-northeast1"
   deletion_protection = true
 
   settings {
@@ -17,5 +17,5 @@ resource "google_sql_database" "mysql-database" {
 resource "google_sql_user" "mysql-users" {
   name     = "me"
   instance = google_sql_database_instance.main-mysql.name
-  password = "password123"
+  password = var.dbpassword
 }

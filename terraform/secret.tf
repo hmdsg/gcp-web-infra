@@ -1,3 +1,4 @@
+# django_settings用secret
 resource "google_secret_manager_secret" "secret-db" {
   secret_id = "django_settings"
 
@@ -13,6 +14,7 @@ resource "google_secret_manager_secret" "secret-db" {
   }
 }
 
+# django admin画面のパスワード用secret
 resource "google_secret_manager_secret" "superuser-password" {
   secret_id = "superuser_password"
 

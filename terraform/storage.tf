@@ -1,11 +1,11 @@
-# For django-storages
+# django-storages用バケット
 resource "google_storage_bucket" "media-bucket" {
   name          = "${var.project_id}-media-bucket"
   location      = "ASIA"
   force_destroy = true
 }
 
-# For static files
+# 外部公開用バケット
 resource "google_storage_bucket" "static-bucket" {
   name          = "${var.project_id}-static-bucket"
   location      = "ASIA"
@@ -14,8 +14,8 @@ resource "google_storage_bucket" "static-bucket" {
 
 resource "google_storage_bucket_iam_binding" "static-bucket" {
   bucket = google_storage_bucket.static-bucket.name
-    role = "roles/storage.legacyObjectReader"
-    members = [
-      "allUsers",
-    ]
+  role   = "roles/storage.legacyObjectReader"
+  members = [
+    "allUsers",
+  ]
 }

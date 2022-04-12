@@ -11,23 +11,23 @@ resource "google_compute_region_network_endpoint_group" "cloudrun_neg" {
 # https://cloud.google.com/blog/ja/products/application-development/new-terraform-module-serverless-load-balancing
 
 module "lb-http" {
-  source            = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
-  version           = "~> 6.2"
+  source  = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
+  version = "~> 6.2"
 
   project = var.project_id
   name    = "backend-lb"
 
   address                         = google_compute_global_address.front-lb-address.address
-  create_address	                = false
+  create_address                  = false
   ssl                             = true
   managed_ssl_certificate_domains = [var.backend_domain]
   https_redirect                  = false
   http_forward                    = false
   backends = {
     default = {
-      description            = null
-      enable_cdn             = false
-      custom_request_headers = null
+      description             = null
+      enable_cdn              = false
+      custom_request_headers  = null
       custom_response_headers = null
 
       log_config = {

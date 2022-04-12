@@ -10,5 +10,5 @@ resource "google_project_service" "project_service" {
 
 resource "google_iap_client" "backend_client" {
   display_name = "backend-client"
-  brand        =  var.iap_brand_name
+  brand        = var.iap_brand_name
 }
