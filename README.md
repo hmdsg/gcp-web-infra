@@ -11,5 +11,5 @@ Cloud Build上のterraformによりデプロイする。
 | dbpassword | dbのパスワード |
 | domain | Cloud DNS で使用するドメイン |
 | backend_domain | Cloud Load Balancing で使用するドメイン |
-| iap_brand_name | iap のブランド (projects/${project_id}/brand/${project_id}) |
+| iap_brand_name | iap のブランド (projects/${project_number}/brand/${project_number}) |
 | alert_email_address　| ログベースalert の通知先Eメールアドレス |
